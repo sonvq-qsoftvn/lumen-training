@@ -1,0 +1,8 @@
+https://lumen.laravel.com/docs/5.2/routing
+
+http://www.bibihub.com/php/lumen-mobile-api-oauth-2-authentication/
+https://github.com/toadgg/lumen-api-starter
+
+http://esbenp.github.io/2015/05/26/lumen-web-api-oauth-2-authentication/
+
+http://nordicapis.com/build-api-lumen-micro-framework/
