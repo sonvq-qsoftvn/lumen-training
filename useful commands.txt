@@ -1,1 +1,16 @@
+$ composer global require "laravel/lumen-installer"
+
+$ lumen new blog
+
+$ composer create-project --prefer-dist laravel/lumen blog
+
 $ php -S localhost:8000 -t public
+
+
+$ php artisan make:migration create_articles_table --create=articles
+
+$ php artisan migrate
+
+$ composer dump-autoload
+
+$ php artisan migrate:refresh --seed
