@@ -8,3 +8,7 @@ http://esbenp.github.io/2015/05/26/lumen-web-api-oauth-2-authentication/
 http://nordicapis.com/build-api-lumen-micro-framework/
 
 https://github.com/saada/docker-lumen
+
+http://baljeetsingh.in/blog/series-build-an-app-with-laravel5-backend-and-angularjs-frontend-part-1-480/
+
+https://www.nginx.com/blog/introduction-to-microservices/
