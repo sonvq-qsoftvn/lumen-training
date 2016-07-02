@@ -11,14 +11,14 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(App\Model\User::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
     ];
 });
 
-$factory->define(App\Article::class, function ($faker) {
+$factory->define(App\Model\Article::class, function ($faker) {
     return [
         'title' => $faker->sentence,
         'content' => $faker->text,

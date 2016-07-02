@@ -12,3 +12,12 @@ https://github.com/saada/docker-lumen
 http://baljeetsingh.in/blog/series-build-an-app-with-laravel5-backend-and-angularjs-frontend-part-1-480/
 
 https://www.nginx.com/blog/introduction-to-microservices/
+
+https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site
+
+who use lumen
+communicate lumen with kaf, kas, storm
+
+http://laravelbook.com/laravel-architecture/
+
+http://stackoverflow.com/questions/37546029/lumen-laravel-decouple-business-logic

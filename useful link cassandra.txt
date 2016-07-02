@@ -1,0 +1,11 @@
+http://www.planetcassandra.org/try-cassandra/
+
+https://github.com/duoshuo/php-cassandra
+
+https://github.com/thobbs/phpcassa
+
+https://github.com/kalpeshhpatel/laravel-cassandra
+
+https://github.com/iw-rotterdam/laravel-cassandra
+
+https://github.com/kallaspriit/Cassandra-PHP-Client-Library

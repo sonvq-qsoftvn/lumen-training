@@ -11,6 +11,17 @@
   |
  */
 
+function rest($path, $controller)
+{
+	global $app;
+	
+	$app->get($path, $controller.'@index');
+	$app->get($path.'/{id}', $controller.'@show');
+	$app->post($path, $controller.'@store');
+	$app->put($path.'/{id}', $controller.'@update');
+	$app->delete($path.'/{id}', $controller.'@destroy');
+}
+
 $app->get('/', function () use ($app) {
     return $app->version();
 });
@@ -36,27 +47,29 @@ $app->get('/{name}', function($name) use ($app) {
     ]);
 });
 
-$app->get('api/article', [
-    'as' => 'article_index', 'uses' => 'ArticleController@index'
-]);
+rest('/api/article', 'ArticleController');
 
-$app->get('api/article/{id}', [
-    'as' => 'article_show', 'uses' => 'ArticleController@show'
-]);
-
-$app->post('api/article', [
-    'as' => 'article_store', 'uses' => 'ArticleController@store'
-]);
-
-$app->put('api/article/{id}', [
-    'as' => 'article_update', 'uses' => 'ArticleController@update'
-]);
-
-$app->delete('api/article/{id}', [
-    'as' => 'article_destroy', 'uses' => 'ArticleController@destroy'
-]);
-
-$app->delete('api/article', [
-    'as' => 'article_delete', 'uses' => 'ArticleController@delete'
-]);
+//$app->get('api/article', [
+//    'as' => 'article_index', 'uses' => 'ArticleController@index'
+//]);
+//
+//$app->get('api/article/{id}', [
+//    'as' => 'article_show', 'uses' => 'ArticleController@show'
+//]);
+//
+//$app->post('api/article', [
+//    'as' => 'article_store', 'uses' => 'ArticleController@store'
+//]);
+//
+//$app->put('api/article/{id}', [
+//    'as' => 'article_update', 'uses' => 'ArticleController@update'
+//]);
+//
+//$app->delete('api/article/{id}', [
+//    'as' => 'article_destroy', 'uses' => 'ArticleController@destroy'
+//]);
+//
+//$app->delete('api/article', [
+//    'as' => 'article_delete', 'uses' => 'ArticleController@delete'
+//]);
 
