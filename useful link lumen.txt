@@ -21,3 +21,5 @@ communicate lumen with kaf, kas, storm
 http://laravelbook.com/laravel-architecture/
 
 http://stackoverflow.com/questions/37546029/lumen-laravel-decouple-business-logic
+
+https://www.sitepoint.com/how-to-build-an-api-only-jwt-powered-laravel-app/

@@ -73,3 +73,7 @@ rest('/api/article', 'ArticleController');
 //    'as' => 'article_delete', 'uses' => 'ArticleController@delete'
 //]);
 
+$app->get('api/cassandra', [
+    'as' => 'cassandra_index', 'uses' => 'CassandraController@index'
+]);
+
