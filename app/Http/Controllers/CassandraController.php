@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Cassandra;
-use Cassandra\Request;
+use Cassandra\Request\Request;
 
 class CassandraController extends Controller {
 
    
-    public function index() {
+    public function index() { 
 //        $articles = Article::all();
 //        foreach ($articles as $singleArticle) {
 //            $singleArticle->delete();

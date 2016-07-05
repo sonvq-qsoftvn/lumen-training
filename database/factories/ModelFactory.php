@@ -12,9 +12,13 @@
 */
 
 $factory->define(App\Model\User::class, function ($faker) {
+    $hasher = app()->make('hash');
+    
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'password' => $hasher->make('123456'),
+        'remember_token' => str_random(10),
     ];
 });
 

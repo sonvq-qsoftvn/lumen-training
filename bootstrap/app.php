@@ -24,6 +24,9 @@ $app = new Laravel\Lumen\Application(
 );
 
 $app->configure('app');
+$app->configure('api');
+
+class_alias(\LucaDegasperi\OAuth2Server\Facades\Authorizer::class, 'Authorizer');
 
 $app->withFacades();
 
@@ -69,6 +72,17 @@ $app->singleton(
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+$app->middleware([
+    \LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware::class
+]);
+
+$app->routeMiddleware([
+    'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class,
+    'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
+    'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
+    'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -83,6 +97,9 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+$app->register(\LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class);
+$app->register(\LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

@@ -11,15 +11,14 @@
   |
  */
 
-function rest($path, $controller)
-{
-	global $app;
-	
-	$app->get($path, $controller.'@index');
-	$app->get($path.'/{id}', $controller.'@show');
-	$app->post($path, $controller.'@store');
-	$app->put($path.'/{id}', $controller.'@update');
-	$app->delete($path.'/{id}', $controller.'@destroy');
+function rest($path, $controller) {
+    global $app;
+
+    $app->get($path, $controller . '@index');
+    $app->get($path . '/{id}', $controller . '@show');
+    $app->post($path, $controller . '@store');
+    $app->put($path . '/{id}', $controller . '@update');
+    $app->delete($path . '/{id}', $controller . '@destroy');
 }
 
 $app->get('/', function () use ($app) {
@@ -49,6 +48,21 @@ $app->get('/{name}', function($name) use ($app) {
 
 rest('/api/article', 'ArticleController');
 
+$app->get('api/cassandra', [
+    'as' => 'cassandra_index', 'uses' => 'CassandraController@index'
+]);
+
+
+$app->post('oauth2/access_token', function () use ($app) {
+    return response()->json(app('oauth2-server.authorizer')->issueAccessToken());
+});
+
+
+//$app->group(['middleware' => 'oauth'], function () use ($app) {
+//    
+//});
+
+
 //$app->get('api/article', [
 //    'as' => 'article_index', 'uses' => 'ArticleController@index'
 //]);
@@ -72,8 +86,4 @@ rest('/api/article', 'ArticleController');
 //$app->delete('api/article', [
 //    'as' => 'article_delete', 'uses' => 'ArticleController@delete'
 //]);
-
-$app->get('api/cassandra', [
-    'as' => 'cassandra_index', 'uses' => 'CassandraController@index'
-]);
 
