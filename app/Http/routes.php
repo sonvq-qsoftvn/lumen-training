@@ -25,13 +25,9 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('foo', function () {
-    return 'Hello World';
-});
-
-$app->get('user/{id}', function ($id) {
-    return 'User ' . $id;
-});
+$app->post('auth/login', [
+    'as' => 'article_store', 'uses' => 'AuthController@postLogin'
+]);
 
 $app->get('/{name}', function($name) use ($app) {
 
@@ -46,7 +42,6 @@ $app->get('/{name}', function($name) use ($app) {
     ]);
 });
 
-rest('/api/article', 'ArticleController');
 
 $app->get('api/cassandra', [
     'as' => 'cassandra_index', 'uses' => 'CassandraController@index'
@@ -57,6 +52,12 @@ $app->post('oauth2/access_token', function () use ($app) {
     return response()->json(app('oauth2-server.authorizer')->issueAccessToken());
 });
 
+$app->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function($app) {
+    rest('/article', 'ArticleController');
+});
+
+
+//rest('/api/article', 'ArticleController');
 
 //$app->group(['middleware' => 'oauth'], function () use ($app) {
 //    

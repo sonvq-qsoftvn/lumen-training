@@ -25,12 +25,21 @@ $app = new Laravel\Lumen\Application(
 
 $app->configure('app');
 $app->configure('api');
-
-class_alias(\LucaDegasperi\OAuth2Server\Facades\Authorizer::class, 'Authorizer');
+$app->configure('auth');
 
 $app->withFacades();
 
 $app->withEloquent();
+
+// configuration for jwt
+$app->configure('jwt');
+
+// class alias for oauth2
+class_alias(\LucaDegasperi\OAuth2Server\Facades\Authorizer::class, 'Authorizer');
+        
+// class alias for JWTAuth
+class_alias('Tymon\JWTAuth\Facades\JWTAuth', 'JWTAuth');
+class_alias('Tymon\JWTAuth\Facades\JWTFactory', 'JWTFactory'); 
 
 /*
 |--------------------------------------------------------------------------
@@ -77,10 +86,15 @@ $app->middleware([
 ]);
 
 $app->routeMiddleware([
+    // route middleware for Oauth2
     'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class,
     'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
     'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
     'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
+    
+    // route middleware for JWTAuth
+    'jwt.auth'    => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+    'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
 ]);
 
 /*
@@ -94,12 +108,16 @@ $app->routeMiddleware([
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+ $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+// Register Provider for Oauth2
 $app->register(\LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class);
 $app->register(\LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class);
+
+// Register Provider for JWTAuth
+$app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
