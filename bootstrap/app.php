@@ -119,6 +119,10 @@ $app->register(\LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class);
 // Register Provider for JWTAuth
 $app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
 
+
+$app->register(\NilPortugues\Laravel5\JSend\Laravel5JSendServiceProvider::class);
+$app->configure('jsend');
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes

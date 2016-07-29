@@ -52,9 +52,11 @@ $app->post('oauth2/access_token', function () use ($app) {
     return response()->json(app('oauth2-server.authorizer')->issueAccessToken());
 });
 
-$app->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function($app) {
-    rest('/article', 'ArticleController');
-});
+rest('api/article', 'ArticleController');
+
+//$app->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function($app) {
+//    
+//});
 
 
 //rest('/api/article', 'ArticleController');

@@ -19,4 +19,10 @@ $ php artisan key:generate
 
 $ php artisan jwt:generate
 
+$ php artisan jwt:secret
+
 $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
+
+
+hostnamectl
+nginx -v

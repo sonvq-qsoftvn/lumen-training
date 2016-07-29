@@ -25,3 +25,5 @@ http://stackoverflow.com/questions/37546029/lumen-laravel-decouple-business-logi
 https://www.sitepoint.com/how-to-build-an-api-only-jwt-powered-laravel-app/
 
 https://laravelista.com/json-web-token-authentication-for-lumen/
+
+https://github.com/tymondesigns/jwt-auth
