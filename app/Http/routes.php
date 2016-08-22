@@ -52,6 +52,7 @@ $app->post('oauth2/access_token', function () use ($app) {
     return response()->json(app('oauth2-server.authorizer')->issueAccessToken());
 });
 
+
 rest('api/article', 'ArticleController');
 
 //$app->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function($app) {
@@ -61,9 +62,14 @@ rest('api/article', 'ArticleController');
 
 //rest('/api/article', 'ArticleController');
 
-//$app->group(['middleware' => 'oauth'], function () use ($app) {
-//    
-//});
+$app->group(['middleware' => 'oauth'], function () use ($app) {
+    $app->get('user', function () use ($app) {
+        // return the protected resource
+        //echo “success authentication”;
+        $user_id = Authorizer::getResourceOwnerId(); // the token user_id
+        var_dump($user_id);die;
+    });
+});
 
 
 //$app->get('api/article', [
