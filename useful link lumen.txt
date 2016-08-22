@@ -27,3 +27,7 @@ https://www.sitepoint.com/how-to-build-an-api-only-jwt-powered-laravel-app/
 https://laravelista.com/json-web-token-authentication-for-lumen/
 
 https://github.com/tymondesigns/jwt-auth
+
+
+/// Oauth 2 tutorial
+https://medium.com/@mshanak/laravel-5-token-based-authentication-ae258c12cfea#.nbw4fpyvp
