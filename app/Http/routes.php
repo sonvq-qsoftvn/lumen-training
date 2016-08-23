@@ -29,7 +29,7 @@ $app->post('auth/login', [
     'as' => 'article_store', 'uses' => 'AuthController@postLogin'
 ]);
 
-$app->get('/{name}', function($name) use ($app) {
+$app->get('github/{name}', function($name) use ($app) {
 
     $options = array('http' => array('user_agent' => $_SERVER['HTTP_USER_AGENT']));
 
@@ -63,7 +63,7 @@ rest('api/article', 'ArticleController');
 //rest('/api/article', 'ArticleController');
 
 $app->group(['middleware' => 'oauth'], function () use ($app) {
-    $app->get('user', function () use ($app) {
+    $app->get('user_details', function () use ($app) {
         // return the protected resource
         //echo “success authentication”;
         $user_id = Authorizer::getResourceOwnerId(); // the token user_id

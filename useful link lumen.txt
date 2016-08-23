@@ -1,9 +1,7 @@
 https://lumen.laravel.com/docs/5.2/routing
 
-http://www.bibihub.com/php/lumen-mobile-api-oauth-2-authentication/
 https://github.com/toadgg/lumen-api-starter
 
-http://esbenp.github.io/2015/05/26/lumen-web-api-oauth-2-authentication/
 
 http://nordicapis.com/build-api-lumen-micro-framework/
 
@@ -31,3 +29,6 @@ https://github.com/tymondesigns/jwt-auth
 
 /// Oauth 2 tutorial
 https://medium.com/@mshanak/laravel-5-token-based-authentication-ae258c12cfea#.nbw4fpyvp
+http://esbenp.github.io/2015/05/26/lumen-web-api-oauth-2-authentication/
+http://www.bibihub.com/php/lumen-mobile-api-oauth-2-authentication/
+http://discountry.github.io/tutorial/2016/02/20/Laravel-RESTful-Oauth2/
